@@ -5,6 +5,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import { lightBaseTheme } from 'material-ui/styles';
+import { BrowserRouter } from 'react-router-dom'
+import Router from './Router'
+
 
 
 
@@ -22,9 +25,12 @@ class App extends Component {
   }
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <AppBar title="FHIR Link" />
-      </MuiThemeProvider>
+      <BrowserRouter>
+        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+          <AppBar title="FHIR Link" />
+          <Router />
+        </MuiThemeProvider>
+      </BrowserRouter>
     )
   }
 }
