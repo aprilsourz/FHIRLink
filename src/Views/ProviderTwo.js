@@ -15,8 +15,7 @@ class ProviderTwo extends React.Component {
   render() {
     return (
       <div>
-        provider two
-      <Switch>
+        <Switch>
           <Route path={`${this.props.match.path}/timeline`} component={TimeLine} />
           <Route path={`${this.props.match.path}/create`} component={Create} />
         </Switch>
