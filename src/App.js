@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import styled from 'styled-components'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar';
 import { lightBaseTheme } from 'material-ui/styles';
 import { BrowserRouter } from 'react-router-dom'
 import Router from './Router'
@@ -27,7 +26,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-          <AppBar title="FHIR Link" />
           <Router />
         </MuiThemeProvider>
       </BrowserRouter>

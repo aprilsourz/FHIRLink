@@ -1,5 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import TimeLine from './TimeLine'
+import Create from './Create'
 
 class ProviderTwo extends React.Component {
   constructor(props) {
@@ -11,7 +13,15 @@ class ProviderTwo extends React.Component {
   }
 
   render() {
-    return <div> ProviderTwo </div>
+    return (
+      <div>
+        provider two
+      <Switch>
+          <Route path={`${this.props.match.path}/timeline`} component={TimeLine} />
+          <Route path={`${this.props.match.path}/create`} component={Create} />
+        </Switch>
+      </div>
+    )
   }
 }
 
