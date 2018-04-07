@@ -4,16 +4,12 @@ import 'react-vertical-timeline-component/style.min.css';
 import styled from 'styled-components'
 import Access from './TimeLine/Access'
 import NoAccess from './TimeLine/NoAccess'
-import { grey400 } from 'material-ui/styles/colors'
+import { grey400, grey900 } from 'material-ui/styles/colors'
 import { Row, Col } from 'react-grid-system'
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 
-const Container = styled.div`
-  background-color: ${grey400};
-  width: 100%;
-  height: 100%;
-
-`
 
 
 class TimeLine extends React.Component {
@@ -25,9 +21,17 @@ class TimeLine extends React.Component {
   }
   render() {
     return (
-      <Container >
-        <Row>
-          <Col md={8} offset={{ md: 2 }}>
+      <Row>
+        <Col md={8} offset={{ md: 2 }}>
+          <Card
+            containerStyle={{ backgroundColor: grey400, marginTop: '1.5em' }}
+          >
+            <CardHeader
+              title="Janet Greshman"
+              avatar=""
+              style={{ backgroundColor: 'white', borderBotton: grey900 }}
+
+            />
             <VerticalTimeline>
               <Access
                 date='01/14/2018'
@@ -67,11 +71,14 @@ class TimeLine extends React.Component {
 
               />
             </VerticalTimeline>
-          </Col>
-        </Row>
-      </Container >
+          </Card>
+        </Col>
+      </Row >
     )
   }
 }
 
 export default TimeLine
+
+
+
