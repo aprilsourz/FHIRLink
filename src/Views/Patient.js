@@ -10,7 +10,7 @@ class Patient extends React.Component {
   }
 
   render() {
-    return <div> PATIENT </div>
+    return
   }
 }
 
