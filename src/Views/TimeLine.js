@@ -9,6 +9,7 @@ import { Row, Col } from 'react-grid-system'
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+
 import Dialog from './TimeLine/Dialog'
 import image from './TimeLine/uxceo-128.jpg'
 
@@ -24,7 +25,6 @@ class TimeLine extends React.Component {
   }
 
   toggle = (state) => {
-    console.log(state)
     this.setState({ open: state })
   }
 
