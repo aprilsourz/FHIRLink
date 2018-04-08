@@ -21,12 +21,17 @@ class TimeLine extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      open: false
+      open: false,
+      requests: false
     }
   }
 
   toggle = (state) => {
     this.setState({ open: state })
+  }
+
+  request = () => {
+    this.setState({ requested: true })
   }
 
 
@@ -39,7 +44,7 @@ class TimeLine extends React.Component {
             containerStyle={{ backgroundColor: '#ececec', marginTop: '1.5em' }}
           >
             <CardHeader
-              title="Janet Greshman"
+              title="Patient Name"
               subtitle='ID: 1232AD'
               avatar={image}
               style={{ backgroundColor: 'white', borderBotton: 'rgb(224, 224, 224)' }}
@@ -61,7 +66,6 @@ class TimeLine extends React.Component {
                 service='Lab Work (blood tests)'
                 place='Boston Childrens Hospital'
                 url={this.props.match.url}
-
               />
               <NoAccess
                 date='01/30/2018'
@@ -69,6 +73,7 @@ class TimeLine extends React.Component {
                 text='New Visit'
                 toggle={() => this.toggle(true)}
                 url={this.props.match.url}
+                requested={this.state.requested}
 
               />
               <Access
@@ -92,7 +97,9 @@ class TimeLine extends React.Component {
             </VerticalTimeline>
           </Card>
         </Col>
-        <Dialog toggle={this.toggle} open={this.state.open} />
+        <Dialog
+          request={this.request}
+          toggle={this.toggle} open={this.state.open} />
       </Row >
     )
   }

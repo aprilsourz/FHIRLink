@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Promise from 'bluebird'
-import { greenA700 } from 'material-ui/styles/colors'
+import { greenA700, lightBlue200 } from 'material-ui/styles/colors'
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
@@ -24,17 +24,26 @@ export default class CustomDialog extends React.Component {
   handleClose = () => {
     this.props.toggle(false);
     this.setState({ view: 'content' })
+
   };
 
   send = () => {
-    Promise.delay(500)
-    this.setState({
-      content: confirmation,
-      view: 'confirmation'
+    this.setState({ content: loading })
+    Promise.delay(1500).then(() => {
+      this.setState({ confirmation: null })
+      this.setState({
+        content: confirmation,
+        view: 'confirmation'
+      })
     })
+    Promise.delay(2500)
+      .then(() => {
+        this.props.toggle(false)
+        this.props.request()
+      })
   }
 
-  renderActions = () => { }
+
 
   render() {
     const actions = [
@@ -50,7 +59,6 @@ export default class CustomDialog extends React.Component {
           onClick={this.send}
         /> : null
     ];
-
     return (
       <div>
         <Dialog
@@ -66,14 +74,23 @@ export default class CustomDialog extends React.Component {
 }
 
 const confirmation = (
-  <div style={{ textAlign: 'center', marginTop: '2em', fontSize: '18px', color: 'black' }}>
+  <div style={{ marginTop: '2em', textAlign: 'center', fontSize: '18px', color: 'black' }}>
     <i style={{ marginTop: '0.3em', color: greenA700 }} className='fa fa-check-circle fa-3x' />
     <br />
-    <span style={{ fontSize: '28px' }}>All set!</span>
-
+    <span>All set!</span>
   </div>
 )
 
-const content = (<div style={{ textAlign: 'center', marginTop: '2em', fontSize: '18px', color: 'black' }}>
-  Request access to Janet Greshman's Visit at St Elizabeth's hospital?
-          </div>)
+const content = (
+  <div style={{ textAlign: 'center', marginTop: '2em', fontSize: '18px', color: 'black' }}>
+    Request access to this patient's visit at St Elizabeth's hospital?
+  </div>
+)
+
+const loading = (
+  <div style={{ textAlign: 'center', marginTop: '2em', fontSize: '18px', color: 'black' }}>
+    <i style={{ marginBottom: '1em', color: lightBlue200 }} className='fa fa-spin fa-spinner fa-3x' />
+    <br />
+  </div>
+)
+

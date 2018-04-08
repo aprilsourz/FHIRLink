@@ -63,8 +63,4 @@ const AccessElement = styled(VerticalTimelineElement) `
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
-  }
-
-
-  
 `
