@@ -15,19 +15,22 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      granted: false
     }
 
   }
 
-  foo = () => {
-    console.log('fooo')
+  grant = () => {
+    this.setState({ granted: true })
   }
   render() {
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-          <Router />
+          <Router
+            granted={this.state.granted}
+            grant={this.grant}
+          />
         </MuiThemeProvider>
       </BrowserRouter>
     )
