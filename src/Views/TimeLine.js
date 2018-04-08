@@ -9,6 +9,8 @@ import { Row, Col } from 'react-grid-system'
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+import image from './TimeLine/uxceo-128.jpg'
+
 
 
 
@@ -24,12 +26,13 @@ class TimeLine extends React.Component {
       <Row>
         <Col md={8} offset={{ md: 2 }}>
           <Card
-            containerStyle={{ backgroundColor: grey400, marginTop: '1.5em' }}
+            containerStyle={{ backgroundColor: '#ececec', marginTop: '1.5em' }}
           >
             <CardHeader
               title="Janet Greshman"
-              avatar=""
-              style={{ backgroundColor: 'white', borderBotton: grey900 }}
+              subtitle='ID: 1232AD'
+              avatar={image}
+              style={{ backgroundColor: 'white', borderBotton: 'rgb(224, 224, 224)' }}
 
             />
             <VerticalTimeline>

@@ -1,11 +1,13 @@
 import React from 'react'
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import styled from 'styled-components'
-import { red300 } from 'material-ui/styles/colors'
+import { red300, grey800, grey100 } from 'material-ui/styles/colors'
+import { Chip } from 'material-ui'
+import { Row, Col } from 'react-grid-system'
 
 
 
-const NoAccess = ({ date, place, text }) => {
+const NoAccess = ({ date, place, text, onClick }) => {
   return (
     <NoAcessElement
       className="vertical-timeline-element"
@@ -15,11 +17,25 @@ const NoAccess = ({ date, place, text }) => {
         background: red300, color: '#fff'
       }}
     >
-      <h4 className="vertical-timeline-element-title">{place}</h4>
+      <Row>
+        <Col md={7}>
+          <h4 className="vertical-timeline-element-title">{place}</h4>
+        </Col>
+        <Col style={{ marginTop: '-10px' }} md={5}>
+          <div>
+            <StyledChip
+              onClick={onClick}
+            >
+              Request Access
+        </StyledChip>
+          </div>
+
+        </Col>
+      </Row>
       <p>
         {text}
       </p>
-    </NoAcessElement>
+    </NoAcessElement >
   )
 }
 
@@ -28,6 +44,19 @@ export default NoAccess
 
 
 const dateElement = (date) => <DateWrapper>{date}</DateWrapper>
+
+const StyledChip = styled(Chip) `
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: ${grey800} !important;
+    span {
+      color: ${grey100} !important;
+      transition: all 0.3s ease-in-out ;
+    }
+
+  }
+`
 
 const DateWrapper = styled.span`
   font-size: 18px;
