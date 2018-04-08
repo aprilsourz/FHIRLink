@@ -7,7 +7,7 @@ import { Row, Col } from 'react-grid-system'
 
 
 
-const NoAccess = ({ date, place, text, onClick }) => {
+const NoAccess = ({ date, place, text, toggle }) => {
   return (
     <NoAcessElement
       className="vertical-timeline-element"
@@ -24,7 +24,7 @@ const NoAccess = ({ date, place, text, onClick }) => {
         <Col style={{ marginTop: '-10px' }} md={5}>
           <div>
             <StyledChip
-              onClick={onClick}
+              onClick={toggle}
             >
               Request Access
         </StyledChip>

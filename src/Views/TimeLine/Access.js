@@ -1,7 +1,7 @@
 import React from 'react'
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import styled from 'styled-components'
-import { greenA700 } from 'material-ui/styles/colors'
+import { greenA700, grey600 } from 'material-ui/styles/colors'
 
 const DateWrapper = styled.span`
   font-size: 18px;
@@ -14,9 +14,16 @@ const IconWrapper = styled.span`
   svg {
     margin-top: 17px;
   }
-
 `
-
+const SubTitle = styled.span`
+  color: ${grey600};
+  font-size: 13px;
+  margin-left: 3px;
+`
+const TextWrapper = styled.span`
+  margin-top: 8px;
+  display: block;
+`
 const icon = (
   <IconWrapper>
     <i className='fa fa-check' />
@@ -32,10 +39,10 @@ const Access = ({ date, place, providerName, service, specialty }) => {
       iconStyle={{ background: greenA700, color: '#fff' }}
     >
       <h4 className="vertical-timeline-element-title">{providerName}</h4>
-      <h4 className="vertical-timeline-element-subtitle">{place}</h4>
-      <p>
+      <SubTitle className="vertical-timeline-element-subtitle">{place}</SubTitle>
+      <TextWrapper>
         {service} - {specialty}
-      </p>
+      </TextWrapper>
     </AccessElement>
   )
 }
