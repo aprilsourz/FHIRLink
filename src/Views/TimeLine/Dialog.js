@@ -37,13 +37,12 @@ export default class CustomDialog extends React.Component {
       <FlatButton
         label="Cancel"
         primary={true}
-        onClick={(() => this.toggle(false))}
+        onClick={(() => this.props.toggle(false))}
       />,
       <FlatButton
-        label="Submit"
+        label="Send"
         primary={true}
-        disabled={true}
-        onClick={this.submit}
+        onClick={() => this.props.toggle(false)}
       />
     ];
 

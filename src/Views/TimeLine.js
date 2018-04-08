@@ -85,7 +85,7 @@ class TimeLine extends React.Component {
             </VerticalTimeline>
           </Card>
         </Col>
-        <Dialog open={this.state.open} />
+        <Dialog toggle={this.toggle} open={this.state.open} />
       </Row >
     )
   }
