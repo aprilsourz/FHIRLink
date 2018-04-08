@@ -2,9 +2,11 @@ import React from 'react'
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import styled from 'styled-components'
 import { greenA700, grey600, blue100 } from 'material-ui/styles/colors'
+import { Link } from 'react-router-dom'
+import RaisedButton from 'material-ui/RaisedButton';
 
 
-const Access = ({ date, place, providerName, service, specialty }) => {
+const Access = ({ date, place, providerName, service, specialty, url }) => {
   return (
     <AccessElement
       className="vertical-timeline-element"
@@ -17,6 +19,9 @@ const Access = ({ date, place, providerName, service, specialty }) => {
       <TextWrapper>
         {service} - {specialty}
       </TextWrapper>
+      <Link to={url.replace('timeline', 'detail')}>
+        <RaisedButton style={{ marginTop: ' 0.5em' }} label="View" primary={true} />
+      </Link>
     </AccessElement>
   )
 }
@@ -57,10 +62,7 @@ const AccessElement = styled(VerticalTimelineElement) `
       box-shadow: none;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
-
-  }
-  .vertical-timeline-element-content:hover  {
-      background-color: ${blue100};
+    }
   }
 
 

@@ -6,6 +6,7 @@ import Access from './TimeLine/Access'
 import NoAccess from './TimeLine/NoAccess'
 import { grey400, grey900 } from 'material-ui/styles/colors'
 import { Row, Col } from 'react-grid-system'
+import { Link } from 'react-router-dom'
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -29,6 +30,7 @@ class TimeLine extends React.Component {
   }
 
 
+
   render() {
     return (
       <Row>
@@ -50,6 +52,7 @@ class TimeLine extends React.Component {
                 specialty='Surgery (General)'
                 service='Apendectomy'
                 place='Boston Childrens Hospital'
+                url={this.props.match.url}
               />
               <Access
                 date='01/26/2018'
@@ -57,6 +60,7 @@ class TimeLine extends React.Component {
                 specialty='Nursing'
                 service='Lab Work (blood tests)'
                 place='Boston Childrens Hospital'
+                url={this.props.match.url}
 
               />
               <NoAccess
@@ -64,6 +68,7 @@ class TimeLine extends React.Component {
                 place='St Elizabeths Hospital'
                 text='New Visit'
                 toggle={() => this.toggle(true)}
+                url={this.props.match.url}
 
               />
               <Access
@@ -72,6 +77,7 @@ class TimeLine extends React.Component {
                 specialty='Nursing'
                 service='Lab Work (blood tests)'
                 place='Boston Childrens Hospital'
+                url={this.props.match.url}
 
               />
               <Access
@@ -80,6 +86,7 @@ class TimeLine extends React.Component {
                 specialty='Surgery (General)'
                 service='Follow Up Visit'
                 place='Boston Childrens Hospital'
+                url={this.props.match.url}
 
               />
             </VerticalTimeline>

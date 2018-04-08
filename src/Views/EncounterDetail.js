@@ -6,8 +6,9 @@ import {
 } from 'material-ui/Card';
 import Paper from 'material-ui/Paper'
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton'
 import { greenA700, grey600, grey100, blue100 } from 'material-ui/styles/colors'
-
+import { Link } from 'react-router-dom'
 
 import Dialog from './TimeLine/Dialog'
 import image from './TimeLine/uxceo-128.jpg'
@@ -36,7 +37,7 @@ const CheckIconCol = styled(Col) `
   margin-left: -4em !important;
 `
 
-const EncounterDetail = () => {
+const EncounterDetail = (props) => {
   const html = { __html: encounter.text.div }
   return (
     <Row>
@@ -45,9 +46,16 @@ const EncounterDetail = () => {
           containerStyle={{ marginTop: '1.5em' }}
         >
           <CardHeader
-            title={`Patient: ${encounter.subject.display}`}
-            subtitle={`ID: ${encounter.id}`}
-          />
+            title={`ID: ${encounter.id}`}
+          >
+            <div style={{float: 'right'}}>
+              <Link to={props.match.url.replace('detail', 'timeline')}>
+                <RaisedButton>
+                  Back
+              </RaisedButton>
+              </Link>
+            </div>
+          </CardHeader>
           <Paper
             style={paperStyleTop}
           >
