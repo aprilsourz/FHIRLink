@@ -34,7 +34,7 @@ const CheckIcon = styled.i`
 `
 
 const CheckIconCol = styled(Col) `
-  margin-left: -4em !important;
+
 `
 
 const EncounterDetail = (props) => {
@@ -48,7 +48,7 @@ const EncounterDetail = (props) => {
           <CardHeader
             title={`ID: ${encounter.id}`}
           >
-            <div style={{float: 'right'}}>
+            <div style={{ float: 'right' }}>
               <Link to={props.match.url.replace('detail', 'timeline')}>
                 <RaisedButton>
                   Back
@@ -65,7 +65,7 @@ const EncounterDetail = (props) => {
               </Col>
             </Row>
             <Row>
-              <Col md={3}>
+              <Col md={6}>
                 <span>{encounter.type[0].coding[0].display} - {encounter.length.value} {encounter.length.unit}</span>
               </Col>
             </Row>

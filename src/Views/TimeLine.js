@@ -34,7 +34,7 @@ class TimeLine extends React.Component {
   render() {
     return (
       <Row>
-        <Col md={8} offset={{ md: 2 }}>
+        <Col md={12}>
           <Card
             containerStyle={{ backgroundColor: '#ececec', marginTop: '1.5em' }}
           >
